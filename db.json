@@ -1,6 +1,41 @@
 {
   "users": [
+    {
+      "id": "4981",
+      "username": "juan"
+    },
+    {
+      "id": "ab73",
+      "username": "juanm"
+    },
+    {
+      "id": "451b",
+      "username": "juanp"
+    },
+    {
+      "id": "58c3",
+      "username": "juanl"
+    },
+    {
+      "id": "5dbc",
+      "username": "junh"
+    },
+    {
+      "id": "9d2d",
+      "username": "jug"
+    },
+    {
+      "id": "414c",
+      "username": "juh"
+    },
+    {
+      "id": "9b65",
+      "username": "lkj"
+    },
+    {
+      "id": "f358",
+      "username": "ad"
+    }
   ],
-  "contacts": [
-  ]
+  "contacts": []
 }

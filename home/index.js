@@ -3,7 +3,7 @@ const createInput = document.querySelector('#create-input');
 const formLogin = document.querySelector('#form-login');
 const loginInput = document.querySelector('#login-input');
 const notification = document.querySelector('.notification');
-
+const container = document.querySelector('#container');
 formLogin.addEventListener('submit', async e =>{
     e.preventDefault();
 
@@ -19,6 +19,7 @@ formLogin.addEventListener('submit', async e =>{
         }, 3000);
     } else {
         localStorage.setItem('user', JSON.stringify(user));
+        container.innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
         window.location.href = '../listacontactos/lista.html';
     }
 })
@@ -50,8 +51,10 @@ formCreate.addEventListener('submit', async e =>{
         })
         notification.innerHTML =`El usuario ${createInput.value} ha sido creado con exito`;
         notification.classList.add('show-notification');
+        container.innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
         setTimeout(() =>{
             notification.classList.remove('show-notification');
+            window.location.href = 'index.html';
         }, 3000);
         createInput.value = ``;
     }

@@ -8,6 +8,8 @@ const form = document.querySelector('#form');
 const list = document.querySelector('#list');
 const closeBtn = document.querySelector('#close');
 const user = JSON.parse(localStorage.getItem('user'));
+const principal = document.querySelector('#principal');
+
 
 // Validations
 let nameValidation = false;
@@ -224,7 +226,8 @@ const getContacts = async () => {
 
 closeBtn.addEventListener('click', async e =>{
   localStorage.removeItem('user');
-  window.location.href = '../home/index.html'
+  principal.innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
+  window.location.href = '../home/index.html';
 });
 
 getContacts();
