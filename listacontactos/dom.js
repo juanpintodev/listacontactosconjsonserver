@@ -64,6 +64,7 @@ numberInput.addEventListener('input', e => {
 form.addEventListener('submit', async e => {
   e.preventDefault();
 
+
   const responseJSON = await fetch('http://localhost:3000/contacts', {
             method: 'POST',
             headers: {
@@ -71,12 +72,17 @@ form.addEventListener('submit', async e => {
             },
             body: JSON.stringify({name: nameInput.value, number: numberInput.value, user: user.username}),
         });
-
+        
         const response = await responseJSON.json();
+        list.innerHTML = `<div class="lds-ring2"><div></div><div></div><div></div><div></div></div>`;
+        setTimeout(() =>{
+          list.innerHTML = ``;   
+          getContacts();
+      }, 1000);
 
   // Verificar si las validaciones son verdaderas
   if (!nameValidation || !numberValidation) return;
-  
+
   const listaContactos = document.createElement('li')
       listaContactos.innerHTML = `
       <li class="contact" id="${response.id}">
@@ -96,7 +102,6 @@ form.addEventListener('submit', async e => {
       </button>
       </li>
       `;
-      list.append(listaContactos);
 
   form.reset();
   formBtn.disabled = true;
@@ -115,11 +120,14 @@ list.addEventListener('click', async e => {
     const id = e.target.parentElement.parentElement.id;
     await fetch(`http://localhost:3000/contacts/${id}`, 
     {method: 'DELETE'});
-    e.target.closest('.delete-btn').parentElement.parentElement.remove();
-  }
-
+    e.target.closest('.delete-btn').parentElement.remove();
+    list.innerHTML = `<div class="lds-ring2"><div></div><div></div><div></div><div></div></div>`;
+    setTimeout(() =>{
+      list.innerHTML = ``;   
+      getContacts();
+  }, 1000);
   
-else if(editar){
+  }else if(editar){
     const li = editar.parentElement;
     const nameEdit = li.children[1];
     const numberEdit = li.children[2];
@@ -195,6 +203,7 @@ else if(editar){
 });
 
 const getContacts = async () => {
+  
   const response = await fetch('http://localhost:3000/contacts',
    {method: 'GET'});
   const contactos = await response.json()

@@ -42,6 +42,7 @@ p#nombre{
 
 .form-input-container{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
 }
@@ -55,6 +56,7 @@ form#form{
   border-radius: 0.5rem;
   background-color: #81d6f5;
   padding: 10px;
+  width: 40%;
 }
 label, input, button{
   font-size: x-small;
@@ -83,6 +85,7 @@ ul#list{
 p{
   padding: 0.3rem;
   font-size: x-small;
+  color: #033c63;
 }
 
 li{
@@ -95,6 +98,10 @@ li.contact{
   align-items: center;
   justify-content: space-between;
   border-bottom: solid 1px #FFFFFF;
+}
+
+.material-symbols-outlined{
+  color: #054f81;
 }
 
 .info {
@@ -139,7 +146,7 @@ button#close:hover{
   width: 1.8rem;
   height: 1.5rem;
   cursor: pointer;
-  color: black;
+  color: #054f81;
   background-color: #81d6f5;
   transition: background 0.2s ease-in;
 }
@@ -176,6 +183,8 @@ button#close:hover{
 
 .form-input {
   outline: none;
+  height: 2rem;
+  display: block;
 }
 
 .form-input:focus {

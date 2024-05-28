@@ -40,6 +40,10 @@ body {
   display: none;
 }
 
+.material-symbols-outlined{
+  color: #054f81;
+}
+
 #container {
   display: flex;
   flex-direction: column;
