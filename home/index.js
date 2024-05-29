@@ -55,7 +55,7 @@ formCreate.addEventListener('submit', async e =>{
         setTimeout(() =>{
             notification.classList.remove('show-notification');
             window.location.href = 'index.html';
-        }, 1000);
+        }, 1500);
         createInput.value = ``;
     }
 });
